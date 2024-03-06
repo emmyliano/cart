@@ -36,6 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 20,
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -131,6 +132,20 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ],
             ),
+          ),
+
+          
+          Row(
+            children: [
+              const Text(
+                "Don't have an account? "
+              ),
+
+              TextButton(
+                onPressed: () {},
+                child: const Text('Sign Up'),
+              ),
+            ]
           ),
         ],
       ),
