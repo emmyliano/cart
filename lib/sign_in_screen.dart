@@ -8,6 +8,8 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  bool _obscureText = true; // this variable is used in the password textfield for visibility on/off
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
                 focusedBorder: OutlineInputBorder(
@@ -84,7 +87,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
+                suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                icon: Icon(_obscureText ? Icons.visibility: Icons.visibility_off),
               )
+              ),
+              
             ),
           ),
 
@@ -136,9 +148,10 @@ class _SignInScreenState extends State<SignInScreen> {
 
           
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Don't have an account? "
+                "Don't have an account?"
               ),
 
               TextButton(

@@ -8,6 +8,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  bool _obscureText = true; // this variable is used in the password textfield for visibility on/off
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,37 +21,49 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
-                  ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                  ],
                 ),
-                const Text('Welcome to cart! Please enter your details below.'),
 
                 const SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
 
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text('Welcome to cart! Please enter your details below.'),
+                  ],
+                ),
+
+                const SizedBox(
+                  height: 40,
+                ),
 
                 // Full name TextField
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Full name',
-                      focusedBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                    labelText: 'Full name',
+                    focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 2.0,
-                        ),
-                      borderRadius: BorderRadius.circular(10),
                       ),
-                    )
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  )),
                 ),
-
 
                 const SizedBox(
                   height: 20,
@@ -59,33 +73,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      focusedBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                    labelText: 'Email',
+                    focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 2.0,
-                        ),
-                      borderRadius: BorderRadius.circular(10),
                       ),
-                    )
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  )),
                 ),
 
+                const SizedBox(
+                  height: 20,
+                ),
 
                 // Phone number TextField
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 2.0,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: 'Phone number',
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      borderRadius: BorderRadius.circular(10),
-                      ),
-                    )
-                  ),
+                      )),
                 ),
 
                 const SizedBox(
@@ -96,21 +112,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    obscureText: _obscureText,
                     decoration: InputDecoration(
-                      labelText: 'Password',
-                      focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 2.0,
+                        labelText: 'Password',
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      borderRadius: BorderRadius.circular(10),
-                      ),
-                    )
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            }
+                          );
+                        },
+                        icon: Icon(_obscureText ? Icons.visibility: Icons.visibility_off),
+                      )
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          
+          const SizedBox(
+            height: 30,
+          ),
           Column(
             children: [
               SizedBox(
@@ -120,39 +148,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: const BorderSide(color: Colors.black12)
-                            )
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side: const BorderSide(
+                                        color: Colors.black12))),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.black),
                           ),
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            height: 3,
-                            fontSize: 18.0,
-                            color: Colors.white
-                            )
-                        )
-                      ),
+                          child: const Text('Sign Up',
+                              style: TextStyle(
+                                  height: 3,
+                                  fontSize: 18.0,
+                                  color: Colors.white))),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account? "
-              ),
-
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              const Text("Already have an account?"),
               TextButton(
                 onPressed: () {},
                 child: const Text(
@@ -162,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-            ]
+            ]),
           ),
         ],
       ),
