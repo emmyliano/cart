@@ -91,7 +91,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 decoration: InputDecoration(
                   //enabledBorder: ,
                   labelText: 'Email',
-                  focusedBorder: OutlineInputBorder(
+                  border: OutlineInputBorder(
                     borderSide: const BorderSide(
                       width: 2.0,
                     ),

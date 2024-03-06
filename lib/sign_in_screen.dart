@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
               decoration: InputDecoration(
                 //enabledBorder: ,
                 labelText: 'Email',
-                focusedBorder: OutlineInputBorder(
+                border: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 2.0,
                   ),
@@ -81,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
-                focusedBorder: OutlineInputBorder(
+                border: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 2.0,
                   ),

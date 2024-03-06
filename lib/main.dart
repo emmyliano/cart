@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ForgotPasswordScreen(),
+      home: SignUpScreen(),
     );
   }
 }

@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: TextField(
                       decoration: InputDecoration(
                     labelText: 'Full name',
-                    focusedBorder: OutlineInputBorder(
+                    border: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 2.0,
                       ),
@@ -75,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: TextField(
                       decoration: InputDecoration(
                     labelText: 'Email',
-                    focusedBorder: OutlineInputBorder(
+                    border: OutlineInputBorder(
                       borderSide: const BorderSide(
                         width: 2.0,
                       ),
@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: 'Phone number',
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                             width: 2.0,
                           ),
@@ -115,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     obscureText: _obscureText,
                     decoration: InputDecoration(
                         labelText: 'Password',
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                             width: 2.0,
                           ),
