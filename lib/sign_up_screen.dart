@@ -92,7 +92,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: 'Phone number',
                         border: OutlineInputBorder(
