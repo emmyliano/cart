@@ -26,7 +26,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     backgroundColor:
                       MaterialStateProperty.all<Color>(const Color.fromARGB(255, 244, 240, 240)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: const Icon(
                     Icons.arrow_back,
                     color: Colors.black,
@@ -89,7 +91,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               padding: const EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
-                  //enabledBorder: ,
                   labelText: 'Email',
                   border: OutlineInputBorder(
                     borderSide: const BorderSide(

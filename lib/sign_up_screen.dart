@@ -8,7 +8,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  bool _obscureText = true; // this variable is used in the password textfield for visibility on/off
+  bool _obscureText =
+      true; // this variable is used in the password textfield for visibility on/off
 
   @override
   Widget build(BuildContext context) {
@@ -93,14 +94,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
                       decoration: InputDecoration(
-                        labelText: 'Phone number',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      )),
+                    labelText: 'Phone number',
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  )),
                 ),
 
                 const SizedBox(
@@ -124,12 +125,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onPressed: () {
                             setState(() {
                               _obscureText = !_obscureText;
-                            }
-                          );
-                        },
-                        icon: Icon(_obscureText ? Icons.visibility: Icons.visibility_off),
-                      )
-                    ),
+                            });
+                          },
+                          icon: Icon(_obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                        )),
                   ),
                 ),
               ],
@@ -175,10 +176,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Text("Already have an account?"),
               TextButton(
                 onPressed: () {},
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(
-                    color: Colors.orange,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.orange,
+                    ),
                   ),
                 ),
               ),
