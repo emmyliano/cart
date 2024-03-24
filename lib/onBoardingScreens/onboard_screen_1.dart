@@ -12,63 +12,101 @@ class _OnBoardScreen1State extends State<OnBoardScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column( 
-        children: <Widget>[
-          Image.asset(".assets/images/Lady_Holding_Bag.png", width: 500, height: 1000),
+      backgroundColor: Colors.black,
+      body: ListView(
+        children: [
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 500,
+                  child: Image.asset("images/Lady_Holding_Bag.png",
+                  ),
+                ),
+              ),
+              
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Swift Delivery',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 247, 239, 239),
+                    ),
+                  ),
+                ],
+              ),
+
+              // White Spacing
+              const SizedBox(
+                height: 20,
+              ),
           
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Affordability meets quality',
-                style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontSize: 15,
-                  color: Color.fromARGB(255, 247, 239, 239),
-                ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                'Experience the joy of getting your orders in',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromARGB(255, 247, 239, 239), 
+                    ),
+                  ),
+                ],
               ),
+                        
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                'record time. We prioritize swift delivery to',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromARGB(255, 247, 239, 239), 
+                    ),
+                  ),
+                ],
+              ),
+                        
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                "bring your purchases right to your doorstep.",
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromARGB(255, 247, 239, 239), 
+                    ),
+                  ),
+                ],
+              ),
+          
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignInScreen()),
+                      );
+                    },
+                    child: const Text(
+                      'Skip   >',
+                      style: TextStyle(
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 247, 239, 239),
+                      ) 
+                    ))
+                  ],
+                ),
+              )
             ],
           ),
-
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '''Discover a wide range of products at
-            unbeatable prices. From trendy fashion to
-            essential gadgets, we've got your budget in 
-            mind''',
-                style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontSize: 11,
-                  color: Color.fromARGB(255, 247, 239, 239), 
-                ),
-              ),
-            ],
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SignInScreen()),
-                  );
-                },
-                child: const Text(
-                  'Skip   >',
-                  style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 247, 239, 239),
-                  ) 
-                ))
-              ],
-            ),
-          )
         ],
       ),
     );
