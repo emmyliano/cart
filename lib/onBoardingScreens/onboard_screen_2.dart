@@ -1,4 +1,5 @@
 import 'package:cart/sign_in_screen.dart';
+import 'package:cart/onBoardingScreens/onboard_screen_1.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardScreen2 extends StatefulWidget {
@@ -41,14 +42,17 @@ class _OnBoardScreen2State extends State<OnBoardScreen2> {
                           const CircleBorder(),
                         ),
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromARGB(255, 244, 240, 240)),
+                            const Color.fromARGB(202, 158, 158, 158)),
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const OnBoardScreen1()),
+                        );
                       },
                       icon: const Icon(
                         Icons.arrow_back,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 231, 229, 229),
                       ),
                     ),
                   )

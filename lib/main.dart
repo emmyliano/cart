@@ -1,5 +1,6 @@
 import 'package:cart/onBoardingScreens/onboard_screen_1.dart';
 import 'package:cart/onBoardingScreens/onboard_screen_2.dart';
+import 'package:cart/onBoardingScreens/onboard_screen_3.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardScreen2(),
+      home: OnBoardScreen3(),
     );
   }
 }
