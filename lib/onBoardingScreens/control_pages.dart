@@ -61,7 +61,7 @@ class _ControlPagesState extends State<ControlPages> {
                                 radius: 8,
                                 backgroundColor: _activePage == index
                                       ? Colors.amber
-                                      : Colors.grey,
+                                      : Colors.white,
                               ),
                             ),
                           )),
