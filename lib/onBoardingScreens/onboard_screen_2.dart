@@ -1,5 +1,4 @@
 import 'package:cart/RegistrationScreens/sign_in_screen.dart';
-import 'package:cart/RegistrationScreens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardScreen2 extends StatefulWidget {
@@ -51,7 +50,7 @@ class _OnBoardScreen2State extends State<OnBoardScreen2> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                          MaterialPageRoute(builder: (context) => const SignInScreen()),
                         );
                       },
                       icon: const Icon(
