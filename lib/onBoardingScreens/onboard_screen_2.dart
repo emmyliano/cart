@@ -1,5 +1,5 @@
-import 'package:cart/sign_in_screen.dart';
-import 'package:cart/onBoardingScreens/onboard_screen_1.dart';
+import 'package:cart/RegistrationScreens/sign_in_screen.dart';
+import 'package:cart/RegistrationScreens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardScreen2 extends StatefulWidget {
@@ -51,7 +51,7 @@ class _OnBoardScreen2State extends State<OnBoardScreen2> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const OnBoardScreen1()),
+                          MaterialPageRoute(builder: (context) => const SignUpScreen()),
                         );
                       },
                       icon: const Icon(
@@ -149,7 +149,7 @@ class _OnBoardScreen2State extends State<OnBoardScreen2> {
                         child: const Text('Skip   >',
                             style: TextStyle(
                               fontSize: 14,
-                              color: Color.fromARGB(255, 247, 239, 239),
+                              color: Colors.amber,
                             )))
                   ],
                 ),

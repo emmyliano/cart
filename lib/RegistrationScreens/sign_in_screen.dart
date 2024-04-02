@@ -1,5 +1,5 @@
-import 'package:cart/forgot_password_screen.dart';
-import 'package:cart/sign_up_screen.dart';
+import 'package:cart/RegistrationScreens/forgot_password_screen.dart';
+import 'package:cart/RegistrationScreens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatefulWidget {

@@ -1,5 +1,6 @@
+import 'package:cart/onBoardingScreens/control_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:cart/onBoardingScreens/onboard_screen_1.dart';
+
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -19,13 +20,13 @@ class _SplashState extends State<Splash> {
     await Future.delayed(const Duration(milliseconds: 4500), () {});
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => const OnBoardScreen1()));
+        MaterialPageRoute(builder: (context) => const ControlPages()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.white,
       body: ListView(
         children: [
           Column(

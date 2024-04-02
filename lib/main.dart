@@ -1,4 +1,3 @@
-import 'package:cart/sign_in_screen.dart';
 import 'package:cart/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
