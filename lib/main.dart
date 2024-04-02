@@ -1,7 +1,5 @@
-import 'package:cart/onBoardingScreens/onboard_screen_1.dart';
-import 'package:cart/onBoardingScreens/onboard_screen_2.dart';
-import 'package:cart/onBoardingScreens/onboard_screen_3.dart';
 import 'package:cart/sign_in_screen.dart';
+import 'package:cart/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      home: Splash(),
     );
   }
 }

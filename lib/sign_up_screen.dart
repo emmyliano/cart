@@ -173,7 +173,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Already have an account?"),
+              const Text("Already have an account ?"),
               TextButton(
                 onPressed: () {},
                 child: TextButton(

@@ -20,9 +20,13 @@ class _OnBoardScreen1State extends State<OnBoardScreen1> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: double.infinity,
-                  height: 500,
-                  child: Image.asset("images/Lady_Holding_Bag.png",
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      "images/Lady_Holding_Bag.png",
+                      height: 550,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -99,7 +103,7 @@ class _OnBoardScreen1State extends State<OnBoardScreen1> {
                       'Skip   >',
                       style: TextStyle(
                       fontSize: 14,
-                      color: Color.fromARGB(255, 247, 239, 239),
+                      color: Colors.orange,
                       ) 
                     ))
                   ],

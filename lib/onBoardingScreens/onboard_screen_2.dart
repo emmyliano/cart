@@ -25,8 +25,12 @@ class _OnBoardScreen2State extends State<OnBoardScreen2> {
                     child: SizedBox(
                       width: double.infinity,
                       height: 500,
-                      child: Image.asset(
-                        "images/Lady_Holding_Bag.png",
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "images/Lady_Holding_Bag.png",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

@@ -24,9 +24,13 @@ class _OnBoardScreen3State extends State<OnBoardScreen3> {
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: double.infinity,
-                      height: 500,
-                      child: Image.asset(
-                        "images/image_for_3.png",
+                      height: 550,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "images/image_for_3.png",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

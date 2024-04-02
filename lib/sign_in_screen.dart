@@ -96,11 +96,17 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, 
-                  MaterialPageRoute(builder: (context) => const ForgotPasswordScreen())
-                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordScreen()));
                 },
-                child: const Text('Forgot Password?'),
+                child: const Text(
+                  'Forgot Password ?',
+                  style: TextStyle(
+                    color: Colors.orange,
+                  ),
+                ),
               ),
             ]),
           ),
@@ -128,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text("Don't have an account?"),
+            const Text("Don't have an account ?"),
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -136,7 +142,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   MaterialPageRoute(builder: (context) => const SignUpScreen()),
                 );
               },
-              child: const Text('Sign Up'),
+              child: const Text(
+                'Sign Up',
+                style: TextStyle(
+                  color: Colors.orange,
+                ),
+              ),
             ),
           ]),
         ],
