@@ -3,8 +3,16 @@ import 'package:cart/onBoardingScreens/onboard_screen_2.dart';
 import 'package:cart/onBoardingScreens/onboard_screen_3.dart';
 import 'package:cart/sign_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 
-void main() {
+
+Future main() async {
+  if (kIsWeb) {
+    await Firebase.initializeApp(options: const FirebaseOptions(apiKey: "AIzaSyBRJd23y1fPS35uKOr15kzHP3kH58DYG0Y", appId: "1:412275156779:web:e626c47b440621ec87076e", messagingSenderId: "412275156779", projectId: "412275156779"));
+  }
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
