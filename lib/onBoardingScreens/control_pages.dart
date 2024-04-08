@@ -27,7 +27,7 @@ class _ControlPagesState extends State<ControlPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
+      body: Stack(
       children: [
         PageView.builder(
             scrollDirection: Axis.vertical,

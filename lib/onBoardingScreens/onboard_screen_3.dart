@@ -50,7 +50,7 @@ class _OnBoardScreen3State extends State<OnBoardScreen3> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OnBoardScreen1()),
+                            builder: (context) => const OnBoardScreen1()),
                         );
                       },
                       icon: const Icon(

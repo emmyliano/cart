@@ -84,3 +84,35 @@ class _HompepageScreenState extends State<HompepageScreen> {
     );
   }
 }
+
+class ItemsInCart extends StatelessWidget {
+  const ItemsInCart({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children:[
+          Image.asset(
+            "images/flash_sales.png",
+            fit: BoxFit.cover,
+          ),
+
+          const Positioned(
+            child: Column(
+              children: [
+                Text(
+                  'Nike Airforce'
+                ),
+
+                Text(
+                  '120.00'
+                )
+              ],
+            ) 
+          ),
+        ],
+      )
+    );
+  }
+}
