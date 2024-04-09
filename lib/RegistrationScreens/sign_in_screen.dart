@@ -1,3 +1,4 @@
+import 'package:cart/HomeScreens/bottom_tab_navigation.dart';
 import 'package:cart/RegistrationScreens/forgot_password_screen.dart';
 import 'package:cart/RegistrationScreens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -117,7 +118,14 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreensNav()
+                          )
+                        );
+                      },
                       style: ButtonStyle(
                         shape: MaterialStateProperty
                             .all<RoundedRectangleBorder>(RoundedRectangleBorder(

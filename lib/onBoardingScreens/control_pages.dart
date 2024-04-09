@@ -40,35 +40,30 @@ class _ControlPagesState extends State<ControlPages> {
             itemBuilder: (BuildContext context, int index) {
               return _pages[index % _pages.length];
             }),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Positioned(
-              right: 10,
-              child: Container(
-                width: 50,
-                height: 120,
-
-                color: Colors.black54,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(
-                      _pages.length,
-                      (index) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: InkWell(
-                              child: CircleAvatar(
-                                radius: 8,
-                                backgroundColor: _activePage == index
-                                      ? Colors.amber
-                                      : Colors.white,
-                              ),
-                            ),
-                          )),
-                ),
-              ),
+        Positioned(
+          right: 10,
+          child: Container(
+            width: 50,
+            height: 120,
+        
+            color: Colors.black54,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List<Widget>.generate(
+                  _pages.length,
+                  (index) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: InkWell(
+                          child: CircleAvatar(
+                            radius: 8,
+                            backgroundColor: _activePage == index
+                                  ? Colors.amber
+                                  : Colors.white,
+                          ),
+                        ),
+                      )),
             ),
-          ],
+          ),
         )
       ],
     ));

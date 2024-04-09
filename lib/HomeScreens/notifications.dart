@@ -10,6 +10,22 @@ class NotificationsScreen extends StatefulWidget {
 class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'You have no notifications yet',
+              style: TextStyle(
+                color: Colors.black,
+                height: 15,
+              )
+            ),
+          ]
+        ),
+      ),
+    );
   }
 }

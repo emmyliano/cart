@@ -24,7 +24,6 @@ class _HomeScreensNavState extends State<HomeScreensNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
@@ -36,22 +35,35 @@ class _HomeScreensNavState extends State<HomeScreensNav> {
 
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home,
+              color: Colors.grey,
+              ),
             label: 'Home',
+            backgroundColor: Color.fromARGB(167, 255, 255, 255),
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
+            icon: Icon(
+              Icons.category,
+              color: Colors.grey,
+              ),
             label: 'Categories',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(
+              Icons.notifications,
+              color: Colors.grey,
+              ),
             label: 'Notifications',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+              color: Colors.grey,
+              ),
             label: 'Profile',
           ),
           
