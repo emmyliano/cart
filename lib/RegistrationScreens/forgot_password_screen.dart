@@ -8,7 +8,13 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  TextEditingController forgotPasswordController = TextEditingController();
+  final TextEditingController _forgotPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _forgotPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,17 +96,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: TextField(
-                controller: forgotPasswordController,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 2.0,
+                  controller: _forgotPasswordController,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                )
-              ),
+                  )),
             ),
 
             // White Space

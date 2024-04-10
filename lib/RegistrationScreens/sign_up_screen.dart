@@ -69,37 +69,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                      controller: _userNameController,
-                      decoration: InputDecoration(
-                        labelText: 'Full name',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                    controller: _userNameController,
+                    decoration: InputDecoration(
+                      labelText: 'Full name',
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.0,
                         ),
-                      )),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    )
+                  ),
                 ),
+
 
                 const SizedBox(
                   height: 20,
                 ),
 
+
                 // Email TextField
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.0,
                         ),
-                      )),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    )
+                  ),
                 ),
+
 
                 const SizedBox(
                   height: 20,
@@ -109,16 +114,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                      controller: _phoneNumberController,
-                      decoration: InputDecoration(
-                        labelText: 'Phone number',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                    controller: _phoneNumberController,
+                    decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.0,
                         ),
-                      )),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    )
+                  ),
                 ),
 
                 const SizedBox(
@@ -131,31 +137,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: TextField(
                     obscureText: _obscureText,
                     decoration: InputDecoration(
-                        labelText: 'Password',
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                      labelText: 'Password',
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.0,
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          icon: Icon(_obscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                        )),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          }
+                        );
+                      },
+                        icon: Icon(
+                          _obscureText ? Icons.visibility : Icons.visibility_off
+                        ),
+                      )
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+
+          
           const SizedBox(
             height: 30,
           ),
+
+
           Column(
             children: [
               SizedBox(
@@ -165,47 +177,56 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    side: const BorderSide(
-                                        color: Colors.black12))),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.black),
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: const BorderSide(
+                                color: Colors.black12)
+                            )
                           ),
-                          child: const Text('Sign Up',
-                              style: TextStyle(
-                                  height: 3,
-                                  fontSize: 18.0,
-                                  color: Colors.white))),
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            height: 3,
+                            fontSize: 18.0,
+                            color: Colors.white
+                          )
+                        )
+                      ),
                     ),
                   ],
                 ),
               ),
             ],
           ),
+
+
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Already have an account ?"),
-              TextButton(
-                onPressed: () {},
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.orange,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Already have an account ?"),
+                TextButton(
+                  onPressed: () {},
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        color: Colors.orange,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ]),
+              ]
+            ),
           ),
         ],
       ),
