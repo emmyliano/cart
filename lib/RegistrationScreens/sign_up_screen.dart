@@ -11,6 +11,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscureText =
       true; // this variable is used in the password textfield for visibility on/off
 
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    _emailController.dispose();
+    _phoneNumberController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,15 +69,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                      controller: _userNameController,
                       decoration: InputDecoration(
-                    labelText: 'Full name',
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  )),
+                        labelText: 'Full name',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      )),
                 ),
 
                 const SizedBox(
@@ -74,15 +89,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  )),
+                        labelText: 'Email',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      )),
                 ),
 
                 const SizedBox(
@@ -93,15 +109,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                      controller: _phoneNumberController,
                       decoration: InputDecoration(
-                    labelText: 'Phone number',
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  )),
+                        labelText: 'Phone number',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      )),
                 ),
 
                 const SizedBox(

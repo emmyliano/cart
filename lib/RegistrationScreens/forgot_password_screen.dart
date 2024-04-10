@@ -8,6 +8,8 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  TextEditingController forgotPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +25,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       const CircleBorder(),
                     ),
-                    backgroundColor:
-                      MaterialStateProperty.all<Color>(const Color.fromARGB(255, 244, 240, 240)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color.fromARGB(255, 244, 240, 240)),
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -41,7 +43,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             const SizedBox(
               height: 30,
             ),
-
 
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -64,7 +65,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             const SizedBox(
               height: 10,
             ),
-
 
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -90,6 +90,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: TextField(
+                controller: forgotPasswordController,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(
@@ -114,25 +115,22 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: const BorderSide(color: Colors.black12)
-                          )
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      side: const BorderSide(
+                                          color: Colors.black12))),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
                         ),
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                      ),
-                      child: const Text(
-                        'Submit',
-                        style: TextStyle(
-                          height: 3,
-                          fontSize: 18.0,
-                          color: Colors.white
-                          )
-                      )
-                    ),
+                        child: const Text('Submit',
+                            style: TextStyle(
+                                height: 3,
+                                fontSize: 18.0,
+                                color: Colors.white))),
                   ),
                 ],
               ),

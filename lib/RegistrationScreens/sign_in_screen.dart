@@ -11,9 +11,18 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  bool _obscureText =
-      true; // this variable is used in the password textfield for visibility on/off
+  bool _obscureText = true; // this variable is used in the password textfield for visibility on/off
 
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +46,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ],
                 ),
+
+
                 SizedBox(
                   height: 20,
                 ),
+
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -52,65 +65,82 @@ class _SignInScreenState extends State<SignInScreen> {
               ],
             ),
           ),
+
+
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
-                decoration: InputDecoration(
-              //enabledBorder: ,
-              labelText: 'Email',
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  width: 2.0,
+              controller: _emailController,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    width: 2.0,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            )),
+              )
+            ),
           ),
+
+
           const SizedBox(
             height: 20,
           ),
+
+
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
+                labelText: 'Password',
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    width: 2.0,
                   ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                    icon: Icon(
-                        _obscureText ? Icons.visibility : Icons.visibility_off),
-                  )),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    }
+                  );
+                },
+                  icon: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off
+                  ),
+                )
+              ),
             ),
           ),
+
+
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ForgotPasswordScreen()));
-                },
-                child: const Text(
-                  'Forgot Password ?',
-                  style: TextStyle(
-                    color: Colors.orange,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end, 
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push( context, MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordScreen()
+                      )
+                    );
+                  },
+                  child: const Text(
+                    'Forgot Password ?',
+                    style: TextStyle(
+                      color: Colors.orange,
+                    ),
                   ),
                 ),
-              ),
-            ]),
+              ]
+            ),
           ),
+
           SizedBox(
             width: 350,
             child: Row(
@@ -118,46 +148,62 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                      context,
-                      MaterialPageRoute(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
                           builder: (context) => const HomeScreensNav()
+                        )
+                      );
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: const BorderSide(
+                            color: Colors.black12
                           )
-                        );
-                      },
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty
-                            .all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: const BorderSide(color: Colors.black12))),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
+                        )
                       ),
-                      child: const Text('Sign In',
-                          style: TextStyle(
-                              height: 3, fontSize: 18.0, color: Colors.white))),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.black
+                      ),
+                    ),
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        height: 3,
+                        fontSize: 18.0,
+                        color: Colors.white
+                      )
+                    )
+                  ),
                 ),
               ],
             ),
           ),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text("Don't have an account ?"),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                );
-              },
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(
-                  color: Colors.orange,
+
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center, 
+            children: [
+              const Text("Don't have an account ?"),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                  );
+                },
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.orange,
+                  ),
                 ),
               ),
-            ),
-          ]),
+            ]
+          ),
         ],
       ),
     );
