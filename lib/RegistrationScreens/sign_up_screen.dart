@@ -1,3 +1,5 @@
+import 'package:cart/HomeScreens/homepage.dart';
+import 'package:cart/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -10,6 +12,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscureText =
       true; // this variable is used in the password textfield for visibility on/off
+  final FirebaseAuthService _auth = FirebaseAuthService();
 
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -69,42 +72,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    controller: _userNameController,
-                    decoration: InputDecoration(
-                      labelText: 'Full name',
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
+                      controller: _userNameController,
+                      decoration: InputDecoration(
+                        labelText: 'Full name',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    )
-                  ),
+                      )),
                 ),
-
 
                 const SizedBox(
                   height: 20,
                 ),
 
-
                 // Email TextField
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    )
-                  ),
+                      )),
                 ),
-
 
                 const SizedBox(
                   height: 20,
@@ -114,17 +112,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    controller: _phoneNumberController,
-                    decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
+                      controller: _phoneNumberController,
+                      decoration: InputDecoration(
+                        labelText: 'Phone number',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    )
-                  ),
+                      )),
                 ),
 
                 const SizedBox(
@@ -135,39 +132,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    controller: _passwordController,
                     obscureText: _obscureText,
                     decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
+                        labelText: 'Password',
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          }
-                        );
-                      },
-                        icon: Icon(
-                          _obscureText ? Icons.visibility : Icons.visibility_off
-                        ),
-                      )
-                    ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          icon: Icon(_obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                        )),
                   ),
                 ),
               ],
             ),
           ),
-
-          
           const SizedBox(
             height: 30,
           ),
-
-
           Column(
             children: [
               SizedBox(
@@ -177,59 +169,66 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: const BorderSide(
-                                color: Colors.black12)
-                            )
+                          onPressed: _signUp,
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side: const BorderSide(
+                                        color: Colors.black12))),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.black),
                           ),
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            height: 3,
-                            fontSize: 18.0,
-                            color: Colors.white
-                          )
-                        )
-                      ),
+                          child: const Text('Sign Up',
+                              style: TextStyle(
+                                  height: 3,
+                                  fontSize: 18.0,
+                                  color: Colors.white))),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Already have an account ?"),
-                TextButton(
-                  onPressed: () {},
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text(
-                      'Sign In',
-                      style: TextStyle(
-                        color: Colors.orange,
-                      ),
-                    ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              const Text("Already have an account ?"),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Sign In',
+                  style: TextStyle(
+                    color: Colors.orange,
                   ),
                 ),
-              ]
-            ),
+              ),
+            ]),
           ),
         ],
       ),
     );
+  }
+
+  void _signUp() async {
+    String username = _userNameController.text;
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    User? user = await.signUpWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      print('User is successfully created');
+      // ignore: use_build_context_synchronously
+      Navigator.push(context, MaterialPageRoute(
+          builder: (context) => const HomepageScreen()
+        )
+      );
+    } else{
+      print('Some error happened');
+    }
   }
 }
