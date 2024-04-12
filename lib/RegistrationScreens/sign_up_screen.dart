@@ -1,5 +1,6 @@
 import 'package:cart/HomeScreens/homepage.dart';
 import 'package:cart/firebase_auth_implementation/firebase_auth_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -214,11 +215,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _signUp() async {
-    String username = _userNameController.text;
+    // String username = _userNameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    User? user = await.signUpWithEmailAndPassword(email, password);
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
     if (user != null) {
       print('User is successfully created');
