@@ -1,3 +1,5 @@
+import 'package:cart/Items_On_Sale/handfan.dart';
+import 'package:cart/Items_On_Sale/iphone_15.dart';
 import 'package:cart/Items_On_Sale/nike_airforce.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +36,9 @@ class _HompepageScreenState extends State<HomepageScreen> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
+
+                const SearchWidget(),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -119,29 +124,33 @@ class _HompepageScreenState extends State<HomepageScreen> {
                     ],
                   ),
 
-                  
-                  SizedBox(
-                    height: 260,
-                    child: GridView.builder(
-                      padding: const EdgeInsets.all(10),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Maximum number of items per row.
-                        crossAxisSpacing: 5, // Horizontal space between items.
-                        mainAxisSpacing: 5, // Vertical space between items.
-                        childAspectRatio: 1.15, // Aspect ratio of the items.
-                      ),  
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        return CartItem(
-                          imageAsset: products[index]['imageAsset']!,
-                          productName: products[index]['productName']!,
-                          productPrice: products[index]['productPrice']!,
-                        );
-                      },
-                    ),
+                  const Row(
+                    children: [
+                      CartItem(
+                        destinationScreen: NikeAirForce(),
+                        imageAsset: '/images/Carousel Slider 1/item 1.png',
+                      ),
+                      
+                      Divider(
+                        height: 200
+                      ),
+
+                      CartItem(
+                        destinationScreen: HandFan(),
+                        imageAsset: '/images/Carousel Slider 1/item 2.png',
+                      ),
+
+                      Divider(
+                        height: 200
+                      ),
+
+                      CartItem(
+                        destinationScreen: Iphone15(),
+                        imageAsset: '/images/Carousel Slider 1/item 3.png',
+                      )
+                    ]
                   )
                 ],
-                
               ),
             ),
           ),
@@ -158,14 +167,12 @@ class _HompepageScreenState extends State<HomepageScreen> {
 // Define the custom CartItem widget.
 class CartItem extends StatelessWidget {
   final String imageAsset;
-  final String productName;
-  final String productPrice;
+  final Widget destinationScreen;
 
   // Constructor to accept values.
   const CartItem({
     required this.imageAsset,
-    required this.productName,
-    required this.productPrice,
+    required this.destinationScreen,
   });
 
   @override
@@ -173,35 +180,68 @@ class CartItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const NikeAirForce()),
+        MaterialPageRoute(builder: (context) => destinationScreen),
       ),
       child: Container(
         padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey
-            ),
-          ),
-          
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(imageAsset, width: double.maxFinite), // Use the passed image location.
-            Text(productName, style: const TextStyle(fontWeight: FontWeight.bold)),
-            Text(productPrice, style: const TextStyle(color: Colors.red)),
-            const Row(
-              children: [
-                Icon(Icons.star, color: Colors.orange),
-                Icon(Icons.star, color: Colors.orange),
-                Icon(Icons.star, color: Colors.orange),
-                Icon(Icons.star, color: Colors.orange),
-                Icon(Icons.star, color: Colors.orange),
-                // Icon(Icons.star_border_outlined),
-              ],
-            ),
+            Image.asset(imageAsset, width: 200), // Use the passed image location.
           ],
         ),
       ),
+    );
+    
+  }
+}
+
+class SearchWidget extends StatefulWidget {
+  const SearchWidget({super.key});
+
+  @override
+  SearchWidgetState createState() => SearchWidgetState();
+}
+
+class SearchWidgetState extends State<SearchWidget> {
+  String _searchResult = '';
+  final TextEditingController _controller = TextEditingController();
+
+  void _onSearchChanged(String query) {
+    // Implement your search logic here
+    setState(() {
+      _searchResult = 'Results for: $query';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            controller: _controller,
+            decoration: InputDecoration(
+              labelText: 'Search',
+              hintText: 'Enter a search term',
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: const Icon(Icons.clear),
+                onPressed: () {
+                  _controller.clear();
+                },
+              ),
+            ),
+            onChanged: _onSearchChanged,
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: Text(_searchResult),
+          ),
+        ),
+      ],
     );
   }
 }

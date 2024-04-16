@@ -10,8 +10,12 @@ class NikeAirForce extends StatefulWidget {
 class _NikeAirForceState extends State<NikeAirForce> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'Buy',
+        )
+      )
     );
   }
 }
