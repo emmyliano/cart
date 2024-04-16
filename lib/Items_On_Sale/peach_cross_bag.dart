@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Iphone15 extends StatefulWidget {
-  const Iphone15({super.key});
+class PeachCrossBag extends StatefulWidget {
+  const PeachCrossBag({super.key});
 
   @override
-  State<Iphone15> createState() => _Iphone15State();
+  State<PeachCrossBag> createState() => _PeachCrossBagState();
 }
 
-class _Iphone15State extends State<Iphone15> {
+class _PeachCrossBagState extends State<PeachCrossBag> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

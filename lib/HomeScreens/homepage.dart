@@ -1,6 +1,8 @@
+import 'package:cart/HomeScreens/custom_widgets.dart';
 import 'package:cart/Items_On_Sale/handfan.dart';
-import 'package:cart/Items_On_Sale/iphone_15.dart';
+import 'package:cart/Items_On_Sale/peach_cross_bag.dart';
 import 'package:cart/Items_On_Sale/nike_airforce.dart';
+import 'package:cart/Items_On_Sale/stainless_steel_water.dart';
 import 'package:flutter/material.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -29,15 +31,13 @@ class _HompepageScreenState extends State<HomepageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Center(
+      body: Center(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
 
-                const SearchWidget(),
+                // const SearchWidget(),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,121 +127,188 @@ class _HompepageScreenState extends State<HomepageScreen> {
                   const Row(
                     children: [
                       CartItem(
+                        productName: 'Nike Airforce',
+                        productPrice: '\$120.00',
                         destinationScreen: NikeAirForce(),
-                        imageAsset: '/images/Carousel Slider 1/item 1.png',
+                        imageAsset: '/images/nike.png',
                       ),
                       
                       Divider(
-                        height: 200
+                        height: 200,
+                        thickness: 5.5,
                       ),
 
                       CartItem(
+                        productName: 'Hand Fan',
+                        productPrice: '\$11.99',
                         destinationScreen: HandFan(),
-                        imageAsset: '/images/Carousel Slider 1/item 2.png',
+                        imageAsset: '/images/hand_fan.png',
                       ),
+                    ],
+                  ),
 
+                    const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Products on Sale',
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                      
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: (){},
+                        child: const Text(
+                          'See all',
+                          style: TextStyle(
+                          fontSize: 17,
+                          color: Color.fromARGB(225, 255, 153, 0),
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ProductItem(
+                        productName: 'Peach Cross Bag',
+                        productPrice: '\$120.00',
+                        destinationScreen: PeachCrossBag(),
+                        imageAsset: '/images/bag',
+                      ),
+                      
                       Divider(
-                        height: 200
+                        height: 200,
+                        thickness: 5.5,
                       ),
 
-                      CartItem(
-                        destinationScreen: Iphone15(),
-                        imageAsset: '/images/Carousel Slider 1/item 3.png',
-                      )
+                      ProductItem(
+                        productName: 'Stainless Steel Water',
+                        productPrice: '\$11.99',
+                        destinationScreen: StainlessSteelWater(),
+                        imageAsset: '/images/steel_water.png',
+                      ),
                     ]
+                  ),
+
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Other Products',
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                      
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: (){},
+                        child: const Text(
+                          'See all',
+                          style: TextStyle(
+                          fontSize: 17,
+                          color: Color.fromARGB(225, 255, 153, 0),
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          OtherProducts(
+                            productName: 'Green Crytal Set',
+                            productPrice: '\$20.00',
+                            destinationScreen: NikeAirForce(),
+                            imageAsset: '/images/green_crystal',
+                          ),
+                          
+                          Divider(
+                            height: 200,
+                            thickness: 5.5,
+                          ),
+                      
+                          OtherProducts(
+                            productName: 'Black t-shirt',
+                            productPrice: '\$50',
+                            destinationScreen: HandFan(),
+                            imageAsset: '/images/shirt.png',
+                          ),
+                        ]
+                      ),
+
+                      Row(
+                        children: [
+                          OtherProducts(
+                            productName: 'Black bucket hat',
+                            productPrice: '\$0.99',
+                            destinationScreen: NikeAirForce(),
+                            imageAsset: '/images/hat',
+                          ),
+                          
+                          Divider(
+                            height: 200,
+                            thickness: 5.5,
+                          ),
+                      
+                          OtherProducts(
+                            productName: 'Galaxy z fold 4',
+                            productPrice: '\$1,800',
+                            destinationScreen: HandFan(),
+                            imageAsset: '/images/galaxy_z.png',
+                          ),
+                        ]
+                      ),
+
+                      Row(
+                        children: [
+                          OtherProducts(
+                            productName: 'Brown Leather Bag',
+                            productPrice: '\$60.89',
+                            destinationScreen: NikeAirForce(),
+                            imageAsset: '/images/leather_bag',
+                          ),
+                              
+                          Divider(
+                            height: 200,
+                            thickness: 5.5,
+                          ),
+                          
+                          OtherProducts(
+                            productName: 'Non tarnish ring set',
+                            productPrice: '\$42.00',
+                            destinationScreen: HandFan(),
+                            imageAsset: '/images/ring.png',
+                          ),
+                        ],
+                      ),
+                    ],
                   )
+
                 ],
               ),
             ),
           ),
-        ],
-
-        
-      ),
 
       
-    );
-  }
-}
-
-// Define the custom CartItem widget.
-class CartItem extends StatelessWidget {
-  final String imageAsset;
-  final Widget destinationScreen;
-
-  // Constructor to accept values.
-  const CartItem({
-    required this.imageAsset,
-    required this.destinationScreen,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => destinationScreen),
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(imageAsset, width: 200), // Use the passed image location.
-          ],
-        ),
-      ),
-    );
-    
-  }
-}
-
-class SearchWidget extends StatefulWidget {
-  const SearchWidget({super.key});
-
-  @override
-  SearchWidgetState createState() => SearchWidgetState();
-}
-
-class SearchWidgetState extends State<SearchWidget> {
-  String _searchResult = '';
-  final TextEditingController _controller = TextEditingController();
-
-  void _onSearchChanged(String query) {
-    // Implement your search logic here
-    setState(() {
-      _searchResult = 'Results for: $query';
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: _controller,
-            decoration: InputDecoration(
-              labelText: 'Search',
-              hintText: 'Enter a search term',
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () {
-                  _controller.clear();
-                },
-              ),
-            ),
-            onChanged: _onSearchChanged,
-          ),
-        ),
-        Expanded(
-          child: Center(
-            child: Text(_searchResult),
-          ),
-        ),
-      ],
     );
   }
 }
