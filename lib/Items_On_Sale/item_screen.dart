@@ -1,14 +1,14 @@
 import 'package:cart/HomeScreens/homepage.dart';
 import 'package:flutter/material.dart';
 
-class NikeAirForce extends StatefulWidget {
-  const NikeAirForce({super.key});
+class Items extends StatefulWidget {
+  const Items({super.key});
 
   @override
-  State<NikeAirForce> createState() => _NikeAirForceState();
+  State<Items> createState() => _ItemsState();
 }
 
-class _NikeAirForceState extends State<NikeAirForce> {
+class _ItemsState extends State<Items> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,8 +1,5 @@
 import 'package:cart/HomeScreens/custom_widgets.dart';
-import 'package:cart/Items_On_Sale/handfan.dart';
 import 'package:cart/Items_On_Sale/item_screen.dart';
-import 'package:cart/Items_On_Sale/peach_cross_bag.dart';
-import 'package:cart/Items_On_Sale/stainless_steel_water.dart';
 import 'package:flutter/material.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -122,7 +119,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                     CartItem(
                       productName: 'Nike Airforce',
                       productPrice: '\$120.00',
-                      destinationScreen: NikeAirForce(),
+                      destinationScreen:Items(),
                       imageAsset: '/images/nike.png',
                     ),
                     Divider(
@@ -132,7 +129,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                     CartItem(
                       productName: 'Hand Fan',
                       productPrice: '\$11.99',
-                      destinationScreen: HandFan(),
+                      destinationScreen: Items(),
                       imageAsset: '/images/hand_fan.png',
                     ),
                   ],
@@ -173,7 +170,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                       ProductItem(
                         productName: 'Peach Cross Bag',
                         productPrice: '\$120.00',
-                        destinationScreen: PeachCrossBag(),
+                        destinationScreen: Items(),
                         imageAsset: '/images/bag.png',
                       ),
                       Divider(
@@ -183,7 +180,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                       ProductItem(
                         productName: 'Stainless Steel Water',
                         productPrice: '\$11.99',
-                        destinationScreen: StainlessSteelWater(),
+                        destinationScreen: Items(),
                         imageAsset: '/images/steel_water.png',
                       ),
                     ]),
@@ -225,7 +222,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                           OtherProducts(
                             productName: 'Green Crytal Set',
                             productPrice: '\$20.00',
-                            destinationScreen: NikeAirForce(),
+                            destinationScreen: Items(),
                             imageAsset: '/images/green_crystal.png',
                           ),
                           Divider(
@@ -235,7 +232,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                           OtherProducts(
                             productName: 'Black t-shirt',
                             productPrice: '\$50',
-                            destinationScreen: HandFan(),
+                            destinationScreen: Items(),
                             imageAsset: '/images/shirt.png',
                           ),
                         ]),
@@ -246,7 +243,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                         OtherProducts(
                           productName: 'Black bucket hat',
                           productPrice: '\$0.99',
-                          destinationScreen: NikeAirForce(),
+                          destinationScreen: Items(),
                           imageAsset: '/images/hat.png',
                         ),
                         Divider(
@@ -256,7 +253,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                         OtherProducts(
                           productName: 'Galaxy z fold 4',
                           productPrice: '\$1,800',
-                          destinationScreen: HandFan(),
+                          destinationScreen: Items(),
                           imageAsset: '/images/galaxy_z.png',
                         ),
                     ]),
@@ -266,7 +263,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                         OtherProducts(
                           productName: 'Brown Leather Bag',
                           productPrice: '\$60.89',
-                          destinationScreen: NikeAirForce(),
+                          destinationScreen: Items(),
                           imageAsset: '/images/leather_bag.png',
                         ),
                         Divider(
@@ -276,7 +273,7 @@ class _HompepageScreenState extends State<HomepageScreen> {
                         OtherProducts(
                           productName: 'Non tarnish ring set',
                           productPrice: '\$42.00',
-                          destinationScreen: HandFan(),
+                          destinationScreen: Items(),
                           imageAsset: '/images/ring.png',
                         ),
                       ],
