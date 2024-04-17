@@ -1,14 +1,13 @@
 import 'package:cart/HomeScreens/homepage.dart';
 import 'package:flutter/material.dart';
 
-class Items extends StatefulWidget {
-  const Items({super.key});
+class Items extends StatelessWidget {
+  final String nameOfItem;
+  final String imageAsset;
+  final String price;
 
-  @override
-  State<Items> createState() => _ItemsState();
-}
+  const Items({super.key, required this.nameOfItem, required this.imageAsset, required this.price});
 
-class _ItemsState extends State<Items> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class _ItemsState extends State<Items> {
                 const CircleBorder(),
               ),
               backgroundColor: MaterialStateProperty.all<Color>(
-                const Color.fromARGB(202, 158, 158, 158)),
+                  const Color.fromARGB(202, 158, 158, 158)),
             ),
             onPressed: () {
               Navigator.push(
@@ -41,83 +40,122 @@ class _ItemsState extends State<Items> {
             ),
           ),
         ),
-        body: const Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Column(children: [
-            Text(
-              'Select Color',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+
+
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Image.asset(
+                imageAsset,
+                width: 400,
+                height: 500,
               ),
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ColorContainer(
-                  colorOfContainer: Colors.blue,
-                  name: 'Blue',
-                ),
-
-                ColorContainer(
-                  colorOfContainer: Colors.purple,
-                  name: 'Purple',
-                ),
-
-                ColorContainer(
-                  colorOfContainer: Colors.red,
-                  name: 'Red',
-                ),
-
-                ColorContainer(
-                  colorOfContainer: Colors.black,
-                  name: 'Black',
-                ),
-
-                ColorContainer(
-                  colorOfContainer: Colors.white,
-                  name: 'White',
-                ),
-              ],
-            ),
-
-            Text(
-              'Select Color',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+              
+              ListTile(
+                title: Text(
+                  nameOfItem,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                )
               ),
-            ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextContainer(
-                  number: ','
+              const Text(
+                'Select Color',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
                 ),
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ColorContainer(
+                    colorOfContainer: Colors.blue,
+                    name: 'Blue',
+                  ),
+                  ColorContainer(
+                    colorOfContainer: Colors.purple,
+                    name: 'Purple',
+                  ),
+                  ColorContainer(
+                    colorOfContainer: Colors.red,
+                    name: 'Red',
+                  ),
+                  ColorContainer(
+                    colorOfContainer: Colors.black,
+                    name: 'Black',
+                  ),
+                  ColorContainer(
+                    colorOfContainer: Colors.white,
+                    name: 'White',
+                  ),
+                ],
+              ),
+              const Text(
+                'Select Size',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextContainer(number: ','),
+                  TextContainer(number: '10'),
+                  TextContainer(number: '12'),
+                  TextContainer(number: '16'),
+                  TextContainer(number: '20'),
+                ],
+              ),
 
-                TextContainer(
-                  number: '10'
-                ),
-
-                TextContainer(
-                  number: '12'
-                ),
-
-                TextContainer(
-                  number: '16'
-                ),
-
-                TextContainer(
-                  number: '20'
-                ),
-              ],
-            )
-          ]
-        ),
-      )
-    );
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                      ),
+                      child: const Text(
+                        'Add to cart',
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ),
+                  ),
+                  
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                      ),
+                      child: const Text(
+                        'Buy now',
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ]
+          ),
+        )
+      );
   }
 }
 
@@ -137,36 +175,30 @@ class ColorContainer extends StatelessWidget {
       children: [
         Container(
           color: colorOfContainer,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
+          decoration: BoxDecoration(
+            border: Border.all(),
           ),
         ),
-        Text(
-          name
-        )
+        Text(name)
       ],
     );
   }
 }
 
-
 class TextContainer extends StatelessWidget {
   final String number;
 
-  const TextContainer({
-    super.key, 
-    required this.number
-  });
+  const TextContainer({super.key, required this.number});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-        number,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-        )
-      ),
-    );
+        decoration: BoxDecoration(
+          border: Border.all(),
+        ),
+        child: Text(number,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            )));
   }
 }
