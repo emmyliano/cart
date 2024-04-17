@@ -1,7 +1,7 @@
 import 'package:cart/HomeScreens/custom_widgets.dart';
 import 'package:cart/Items_On_Sale/handfan.dart';
+import 'package:cart/Items_On_Sale/item_screen.dart';
 import 'package:cart/Items_On_Sale/peach_cross_bag.dart';
-import 'package:cart/Items_On_Sale/nike_airforce.dart';
 import 'package:cart/Items_On_Sale/stainless_steel_water.dart';
 import 'package:flutter/material.dart';
 

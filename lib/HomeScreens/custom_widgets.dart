@@ -184,3 +184,53 @@ class SearchWidgetState extends State<SearchWidget> {
       );
   }
 }
+
+
+class CustomContainer extends StatelessWidget {
+  final String imageAsset;
+  final Widget destinationScreen;
+  final String productName;
+  final String productPrice;
+
+  // Constructor to accept values.
+  const CustomContainer({
+    required this.productName,
+    required this.productPrice,
+    required this.imageAsset,
+    required this.destinationScreen,
+
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => destinationScreen
+        ),
+      ),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(imageAsset, width: 400), // Use the passed image location.
+            Text(productName, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(productPrice, style: const TextStyle(color: Colors.red)),
+            const Row(
+              children: [
+                Icon(Icons.star, color: Colors.orange),
+                Icon(Icons.star, color: Colors.orange),
+                Icon(Icons.star, color: Colors.orange),
+                Icon(Icons.star, color: Colors.orange),
+                Icon(Icons.star, color: Colors.orange),
+                // Icon(Icons.star_border_outlined),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+    
+  }
+}
