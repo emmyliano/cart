@@ -195,7 +195,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Already have an account ?"),
+              const Text("Already have an account?"),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -224,11 +224,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (user != null) {
       print('User is successfully created');
       // ignore: use_build_context_synchronously
-      Navigator.push(context, MaterialPageRoute(
-          builder: (context) => const HomepageScreen()
-        )
-      );
-    } else{
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const HomepageScreen()));
+    } else {
       print('Some error happened');
     }
   }

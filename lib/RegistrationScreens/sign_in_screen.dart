@@ -93,7 +93,7 @@ class _SignInScreenState extends State<SignInScreen> {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _passwordController,
-              obscureText: true,
+              obscureText: _obscureText,
               decoration: InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(
